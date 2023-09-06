@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<htmllang="en"xmlns:th="http://www.thymeleaf.org">
+<head>
+<metacharset="ISO-8859-1">
+<title>Employee</title>
+<linkrel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+</head>
+<body>
+<divclass="container my-2"align="center">
+
+<h3>Employee List</h3>
+<ath:href="@{/addnew}"class="btnbtn-primary btn-sm mb-3">Add Employee</a>
+	<tablestyle="width:80%"border="1"
+		class = "table table-striped table-responsive-md">
+	<thead>
+<tr>
+	<th>Name</th>
+	<th>Email</th>
+	<th>dob</th>
+	<th>salary</th>
+	<th>status</th>
+	<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<trth:each="employee:${allemplist}">
+		<tdth:text="${employee.name}"></td>
+		<tdth:text="${employee.email}"></td>
+		<tdth:text="${employee.dob}"></td>
+		<tdth:text="${employee.salary}"></td>
+		<tdth:text="${employee.status}"></td>
+		
+		<td><ath:href="@{/showFormForUpdate/{id}(id=${employee.id})}"
+				class="btnbtn-primary">Update</a>
+				<ath:href="@{/deleteEmployee/{id}(id=${employee.id})}"
+				class="btnbtn-danger">Delete</a>
+	</td>
+</tr>
+</tbody>
+</table>
+</div>
+</body>
+</html>

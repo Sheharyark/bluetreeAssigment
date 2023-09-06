@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<htmllang="en"xmlns:th="http://www.thymeleaf.org">
+<head>
+<metacharset="ISO-8859-1">
+<title>Employee Management System</title>
+<linkrel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+</head>
+<body>
+	<divclass="container">
+		<h1>Employee Management System</h1>
+		<hr>
+		<h2>Save Employee</h2>
+
+		<formaction="#"th:action="@{/save}"th:object="${employee}"
+			method="POST">
+			<inputtype="text"th:field="*{name}"placeholder="Employee Name"
+				class="form-control mb-4 col-4">
+				<inputtype="text"
+				th:field="*{email}"placeholder="Employee Email"
+				class="form-control mb-4 col-4">
+				<inputtype="text"th:field="*{dob}"placeholder="Employee DOB"
+				class="form-control mb-4 col-4">
+				<inputtype="text"th:field="*{salary}"placeholder="Employee salary"
+				class="form-control mb-4 col-4">
+				<inputtype="text"th:field="*{status}"placeholder="Employee status"
+				class="form-control mb-4 col-4">
+
+			<buttontype="submit"class="btnbtn-info col-2">Save
+				Employee</button>
+		</form>
+
+		<hr>
+
+		<ath:href="@{/}"> Back to Employee List</a>
+	</div>
+</body>
+</html>
